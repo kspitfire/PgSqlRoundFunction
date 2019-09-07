@@ -1,6 +1,6 @@
 <?php
 
-namespace Kspitfire\PqSqlRoundFunction\DQL;
+namespace Kspitfire\PgSqlRoundFunction\DQL;
 
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\Lexer;
