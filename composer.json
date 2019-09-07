@@ -1,0 +1,21 @@
+{
+    "name": "kspitfire/pgsql-doctrine-round-function",
+    "type": "symfony-bundle",
+    "description": "PostgreSQL ROUND() function for Doctrine ORM",
+    "keywords": ["doctrine", "symfony", "postgresql", "pgsql", "function", "round"],
+    "homepage": "https://github.com/kspitfire/PgsqlDoctrineRoundFunction",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Alexeev Kirill",
+            "homepage": "https://github.com/kspitfire"
+        }
+    ],
+    "require" : {
+        "doctrine/orm": ">=2.2.0"
+    },
+    "autoload": {
+        "psr-4": { "Kspitfire\\PgsqlDoctrineRoundFunction\\": "" }
+    }
+}
