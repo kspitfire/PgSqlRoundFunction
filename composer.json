@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "PostgreSQL ROUND() function for Doctrine ORM",
     "keywords": ["doctrine", "symfony", "postgresql", "pgsql", "function", "round"],
-    "homepage": "https://github.com/kspitfire/PgsqlDoctrineRoundFunction",
+    "homepage": "https://github.com/kspitfire/PgSqlRoundFunction",
     "license": "MIT",
     "minimum-stability": "dev",
     "authors": [

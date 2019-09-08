@@ -30,10 +30,13 @@ class RoundFunction extends FunctionNode
 
         $this->simpleArithmeticExpression = $parser->SimpleArithmeticExpression();
 
-        // parse second parameter if available
         if (Lexer::T_COMMA === $lexer->lookahead['type']) {
             $parser->match(Lexer::T_COMMA);
-            $this->roundPrecision = $parser->ArithmeticPrimary();
+            $this->roundPrecision = $parser->ArithmeticExpression();
+
+            if ($this->roundPrecision === null) {
+                $this->roundPrecision = 0;
+            }
         }
 
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
@@ -45,9 +48,9 @@ class RoundFunction extends FunctionNode
     public function getSql(SqlWalker $sqlWalker)
     {
         return sprintf(
-            'ROUND(%s, %s)',
+            'ROUND(%s%s)',
             $sqlWalker->walkSimpleArithmeticExpression($this->simpleArithmeticExpression),
-            (is_null($this->roundPrecision) ? 0 : $sqlWalker->walkStringPrimary($this->roundPrecision))
+            (null !== $this->roundPrecision) ? ', ' . $sqlWalker->walkStringPrimary($this->roundPrecision) : ''
         );
     }
 }
